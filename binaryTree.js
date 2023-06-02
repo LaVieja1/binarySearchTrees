@@ -147,4 +147,39 @@ export default class Tree {
         func(this.postorderTransversed, node.data);
         return this.postorderTransversed;
     }
+
+    height(node) {
+        if (node === null) return 0;
+
+        const leftHeight = this.height(node.left);
+        const rightHeight = this.height(node.right);
+        return Math.max(leftHeight, rightHeight) + 1; //Devuelve la altura del arbol
+    }
+
+    depth(data, node = this.root, level = 0) {
+        if (!data) return null;
+        if (node === null) return 0;
+
+        if (node.data === data.data) return level; 
+        let count = this.depth(data, node.left, level + 1);
+        if (count !== 0) return count;
+        return this.depth(data, node.right, level + 1); //Devuelve la profundidad del dato
+    }
+
+    isBalanced() {
+        const allNodes = this.inOrder();
+
+        for (let i = 0; i < allNodes.length; i++) {
+            const node = this.find(allNodes[i]);
+            const leftSubtree = this.height(node.left);
+            const rightSubtree = this.height(node.right);
+            if (Math.abs(leftSubtree - rightSubtree) > 1) return false;
+        }
+        return true;
+    }
+
+    rebalance() {
+        const currentTreeArray = this.inOrder();
+        this.root = this.buildTree(currentTreeArray);
+    }
 }

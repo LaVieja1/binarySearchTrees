@@ -29,8 +29,21 @@ const tree = new Tree(createRandomArray(7));
 prettyPrint(tree.root);
 
 addNumbers(4);
+tree.insert(100);
 prettyPrint(tree.root);
 
+console.log(`Lever Order Transversal: ${tree.levelOrder()}`);
+console.log(`Inorder Transversal: ${tree.inOrder()}`);
+console.log(`Preorder Transversal: ${tree.preOrder()}`);
+console.log(`Postorder Transversal: ${tree.postOrder()}`);
+
+console.log(`Height: ${tree.height(tree.root)}`);
+console.log(`Depth: ${tree.depth(100)}`);
+
+console.log(`Is Balanced? ${tree.isBalanced()}`);
+tree.rebalance();
+prettyPrint(tree.root);
+console.log(`Is Balanced? ${tree.isBalanced()}`);
 console.log(`Lever Order Transversal: ${tree.levelOrder()}`);
 console.log(`Inorder Transversal: ${tree.inOrder()}`);
 console.log(`Preorder Transversal: ${tree.preOrder()}`);
