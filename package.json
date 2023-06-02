@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Ejercicio crear una binary tree con distintas funciones de search",
   "main": "binarySearchTree.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
