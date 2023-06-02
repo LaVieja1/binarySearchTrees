@@ -18,5 +18,15 @@ function createRandomArray(n) {
     return array;
 }
 
+function addNumbers(n) {
+    const array = createRandomArray(n);
+    for (let i = 0; i < n; i++) {
+      tree.insert(array[i]);
+    }
+}
+
 const tree = new Tree(createRandomArray(7));
+prettyPrint(tree.root);
+
+addNumbers(4);
 prettyPrint(tree.root);

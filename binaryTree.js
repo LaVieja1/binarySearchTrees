@@ -72,4 +72,11 @@ export default class Tree {
         }
         return minv;
     }
+
+    find(data, node = this.root) {
+        if (node.data === data) return node;
+
+        if(data < node.data) return this.find(data, node.left);
+        if(data > node.data) return this.find(data, node.right);
+    }
 }
