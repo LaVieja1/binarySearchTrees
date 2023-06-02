@@ -27,15 +27,16 @@ function addNumbers(n) {
 
 const tree = new Tree(createRandomArray(7));
 prettyPrint(tree.root);
-
-addNumbers(4);
-tree.insert(100);
-prettyPrint(tree.root);
+console.log(`Is Balanced? ${tree.isBalanced()}`);
 
 console.log(`Lever Order Transversal: ${tree.levelOrder()}`);
 console.log(`Inorder Transversal: ${tree.inOrder()}`);
 console.log(`Preorder Transversal: ${tree.preOrder()}`);
 console.log(`Postorder Transversal: ${tree.postOrder()}`);
+
+addNumbers(8);
+tree.insert(100);
+prettyPrint(tree.root);
 
 console.log(`Height: ${tree.height(tree.root)}`);
 console.log(`Depth: ${tree.depth(100)}`);
