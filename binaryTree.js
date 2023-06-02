@@ -105,4 +105,46 @@ export default class Tree {
     toArray(arr, value) {
         arr.push(value);
     }
+
+    inOrder() {
+        this.inorderTransversed = [];
+        return this.recInOrder();
+    }
+
+    recInOrder(func = this.toArray, node = this.root) { //Usa la recursion para pasar a los nodos mas bajos
+        if (node === null) return; 
+        
+        this.recInOrder(func, node.left); //Pasa el nodo izq a array
+        func(this.inorderTransversed, node.data); //Pasa el nodo mid a array
+        this.recInOrder(func, node.right); //Pasa el nodo der a array
+        return this.inorderTransversed;
+    }
+
+    preOrder() {
+        this.preorderTransversed = [];
+        return this.recPreOrder();
+    }
+
+    recPreOrder(func = this.toArray, node = this.root) {
+        if (node === null) return;
+
+        func(this.preorderTransversed, node.data);
+        this.recPreOrder(func, node.left);
+        this.recPreOrder(func, node.right);
+        return this.preorderTransversed;
+    }
+
+    postOrder() {
+        this.postorderTransversed = [];
+        return this.recPostOrder();
+    }
+
+    recPostOrder(func = this.toArray, node = this.root) {
+        if (node === null) return;
+
+        this.recPostOrder(func, node.left);
+        this.recPostOrder(func, node.right);
+        func(this.postorderTransversed, node.data);
+        return this.postorderTransversed;
+    }
 }

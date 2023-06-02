@@ -32,3 +32,6 @@ addNumbers(4);
 prettyPrint(tree.root);
 
 console.log(`Lever Order Transversal: ${tree.levelOrder()}`);
+console.log(`Inorder Transversal: ${tree.inOrder()}`);
+console.log(`Preorder Transversal: ${tree.preOrder()}`);
+console.log(`Postorder Transversal: ${tree.postOrder()}`);
