@@ -3,6 +3,10 @@ import Node from './node.js';
 export default class Tree {
     constructor(arr) {
         this.root = this.buildTree(arr); //Construye el arbol apenas es llamado
+        this.levelOrderTransversed = [];
+        this.preorderTransversed = [];
+        this.inorderTransversed = [];
+        this.postorderTransversed = [];
     }
 
     buildTree(arr) {
@@ -78,5 +82,27 @@ export default class Tree {
 
         if(data < node.data) return this.find(data, node.left);
         if(data > node.data) return this.find(data, node.right);
+    }
+
+    levelOrder(func = this.toArray) {
+        this.levelOrderTransversed = [];
+        if (this.root === null) return;
+
+        const queue = [];
+        queue.push(this.root); //Pone en fila todo el array del arbol
+
+        while (queue.length > 0) {
+            const node = queue[0];
+            func(this.levelOrderTransversed, node.data);
+            if (node.left != null) queue.push(node.left);
+            if (node.right != null) queue.push(node.right); 
+            queue.shift(); //Elimina el primer nodo de la fila y empieza por el siguiente
+        }
+
+        return this.levelOrderTransversed; //Devuelve un array con el orden del arbol por nivel
+    }
+
+    toArray(arr, value) {
+        arr.push(value);
     }
 }

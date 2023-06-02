@@ -30,3 +30,5 @@ prettyPrint(tree.root);
 
 addNumbers(4);
 prettyPrint(tree.root);
+
+console.log(`Lever Order Transversal: ${tree.levelOrder()}`);
